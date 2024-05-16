@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:silab_admin/app_config.dart';
 import 'package:silab_admin/core/router/router.dart';
 import 'package:silab_admin/features/authentication/presentation/bloc/login_bloc.dart';
+import 'package:silab_admin/features/classes/presentation/bloc/classes_bloc.dart';
 import 'package:silab_admin/injection_container.dart';
 
 void main() async {
@@ -26,6 +27,7 @@ class MainApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<LoginBloc>(create: (_) => injector()),
+        BlocProvider<ClassesBloc>(create: (_) => injector()),
       ],
       child: MaterialApp.router(
         routerConfig: router,

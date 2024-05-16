@@ -14,7 +14,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc(this._userLoginUseCase, this._getUserTokenUseCase)
       : super(LoginInitial()) {
     on<LoginButtonTapped>(onLoginButtonTapped);
-    on<ApplicationOpened>(onLoginButtonTapped);
+    on<ApplicationOpened>(onApplicationOpened);
   }
 
   void onLoginButtonTapped(LoginEvent event, Emitter<LoginState> emit) async {
