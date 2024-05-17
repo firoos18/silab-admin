@@ -1,68 +1,64 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sliding_clipped_nav_bar/sliding_clipped_nav_bar.dart';
 
 class ScaffoldPage extends StatefulWidget {
-  final String location;
-  final Widget child;
+  final StatefulNavigationShell navigationShell;
 
-  const ScaffoldPage({super.key, required this.child, required this.location});
+  const ScaffoldPage({
+    super.key,
+    required this.navigationShell,
+  });
 
   @override
   State<ScaffoldPage> createState() => _ScaffoldPageState();
 }
 
 class _ScaffoldPageState extends State<ScaffoldPage> {
-  int _currentIndex = 0;
+  int _selectedIndex = 0;
 
-  List<CustomBottomNavigationBarItem> tabs = [
-    CustomBottomNavigationBarItem(
-      icon: const Icon(Icons.home),
-      label: "HOME",
-      initialLocation: '/home',
-    ),
-    CustomBottomNavigationBarItem(
-        icon: const Icon(Icons.search),
-        label: "FIND",
-        initialLocation: '/find'),
-    CustomBottomNavigationBarItem(
-        icon: const Icon(Icons.person),
-        label: "PROFILE",
-        initialLocation: '/profile'),
-  ];
-
-  void _changeTabs(BuildContext context, int index) {
-    if (index == _currentIndex) return;
-
-    GoRouter router = GoRouter.of(context);
-    String location = tabs[index].initialLocation;
-
-    setState(() {
-      _currentIndex = index;
-    });
-
-    if (index == 3) {
-      context.push('/');
-    } else {
-      router.go(location);
-    }
+  void _goBranch(int index) {
+    widget.navigationShell.goBranch(
+      index,
+      initialLocation: index == widget.navigationShell.currentIndex,
+    );
   }
+
+  List<BarItem> tabs = [
+    BarItem(
+      icon: Icons.home,
+      title: "HOME",
+    ),
+    BarItem(
+      icon: Icons.search,
+      title: "FIND",
+    ),
+    BarItem(
+      icon: Icons.person,
+      title: "PROFILE",
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(child: widget.child),
-      bottomNavigationBar: BottomNavigationBar(
-        items: tabs,
-        currentIndex: widget.location == '/home'
-            ? 0
-            : widget.location == '/find'
-                ? 1
-                : widget.location == '/profile'
-                    ? 2
-                    : 3,
-        onTap: (value) {
-          _changeTabs(context, value);
+      body: SafeArea(child: widget.navigationShell),
+      bottomNavigationBar: SlidingClippedNavBar(
+        activeColor: Colors.black,
+        barItems: tabs,
+        selectedIndex: _selectedIndex,
+        onButtonPressed: (value) {
+          setState(() {
+            _selectedIndex = value;
+          });
+          _goBranch(_selectedIndex);
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          context.push('/add-class');
+        },
+        child: const Icon(Icons.add),
       ),
     );
   }

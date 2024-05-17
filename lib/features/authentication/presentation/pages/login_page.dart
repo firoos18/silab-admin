@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:silab_admin/features/authentication/data/models/login_model.dart';
 import 'package:silab_admin/features/authentication/presentation/bloc/login_bloc.dart';
-import 'package:silab_admin/features/authentication/presentation/components/login_text_field.dart';
+import 'package:silab_admin/features/authentication/presentation/widgets/login_text_field.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

@@ -20,6 +20,7 @@ ClassEntity _$ClassEntityFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ClassEntity {
+  String? get subjectId => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String? get day => throw _privateConstructorUsedError;
   String? get startAt => throw _privateConstructorUsedError;
@@ -42,7 +43,8 @@ abstract class $ClassEntityCopyWith<$Res> {
       _$ClassEntityCopyWithImpl<$Res, ClassEntity>;
   @useResult
   $Res call(
-      {String? name,
+      {String? subjectId,
+      String? name,
       String? day,
       String? startAt,
       String? endAt,
@@ -65,6 +67,7 @@ class _$ClassEntityCopyWithImpl<$Res, $Val extends ClassEntity>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? subjectId = freezed,
     Object? name = freezed,
     Object? day = freezed,
     Object? startAt = freezed,
@@ -75,6 +78,10 @@ class _$ClassEntityCopyWithImpl<$Res, $Val extends ClassEntity>
     Object? participants = freezed,
   }) {
     return _then(_value.copyWith(
+      subjectId: freezed == subjectId
+          ? _value.subjectId
+          : subjectId // ignore: cast_nullable_to_non_nullable
+              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -120,7 +127,8 @@ abstract class _$$ClassEntityImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? name,
+      {String? subjectId,
+      String? name,
       String? day,
       String? startAt,
       String? endAt,
@@ -141,6 +149,7 @@ class __$$ClassEntityImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? subjectId = freezed,
     Object? name = freezed,
     Object? day = freezed,
     Object? startAt = freezed,
@@ -151,6 +160,10 @@ class __$$ClassEntityImplCopyWithImpl<$Res>
     Object? participants = freezed,
   }) {
     return _then(_$ClassEntityImpl(
+      subjectId: freezed == subjectId
+          ? _value.subjectId
+          : subjectId // ignore: cast_nullable_to_non_nullable
+              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -191,7 +204,8 @@ class __$$ClassEntityImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ClassEntityImpl implements _ClassEntity {
   const _$ClassEntityImpl(
-      {this.name,
+      {this.subjectId,
+      this.name,
       this.day,
       this.startAt,
       this.endAt,
@@ -205,6 +219,8 @@ class _$ClassEntityImpl implements _ClassEntity {
   factory _$ClassEntityImpl.fromJson(Map<String, dynamic> json) =>
       _$$ClassEntityImplFromJson(json);
 
+  @override
+  final String? subjectId;
   @override
   final String? name;
   @override
@@ -239,7 +255,7 @@ class _$ClassEntityImpl implements _ClassEntity {
 
   @override
   String toString() {
-    return 'ClassEntity(name: $name, day: $day, startAt: $startAt, endAt: $endAt, assistants: $assistants, quota: $quota, isFull: $isFull, participants: $participants)';
+    return 'ClassEntity(subjectId: $subjectId, name: $name, day: $day, startAt: $startAt, endAt: $endAt, assistants: $assistants, quota: $quota, isFull: $isFull, participants: $participants)';
   }
 
   @override
@@ -247,6 +263,8 @@ class _$ClassEntityImpl implements _ClassEntity {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ClassEntityImpl &&
+            (identical(other.subjectId, subjectId) ||
+                other.subjectId == subjectId) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.day, day) || other.day == day) &&
             (identical(other.startAt, startAt) || other.startAt == startAt) &&
@@ -263,6 +281,7 @@ class _$ClassEntityImpl implements _ClassEntity {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      subjectId,
       name,
       day,
       startAt,
@@ -288,7 +307,8 @@ class _$ClassEntityImpl implements _ClassEntity {
 
 abstract class _ClassEntity implements ClassEntity {
   const factory _ClassEntity(
-      {final String? name,
+      {final String? subjectId,
+      final String? name,
       final String? day,
       final String? startAt,
       final String? endAt,
@@ -300,6 +320,8 @@ abstract class _ClassEntity implements ClassEntity {
   factory _ClassEntity.fromJson(Map<String, dynamic> json) =
       _$ClassEntityImpl.fromJson;
 
+  @override
+  String? get subjectId;
   @override
   String? get name;
   @override

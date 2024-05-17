@@ -6,6 +6,7 @@ part 'class_entity.g.dart';
 @freezed
 class ClassEntity with _$ClassEntity {
   const factory ClassEntity({
+    String? subjectId,
     String? name,
     String? day,
     String? startAt,

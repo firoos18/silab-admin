@@ -26,10 +26,15 @@ class _HomePageState extends State<HomePage> {
         child: BlocBuilder<ClassesBloc, ClassesState>(
           builder: (context, state) {
             if (state is ClassesLoaded) {
-              return ListView.builder(
-                itemCount: state.classList!.length,
-                itemBuilder: (context, index) => ClassCard(
-                  classData: state.classList![index],
+              return RefreshIndicator.adaptive(
+                onRefresh: () async {
+                  context.read<ClassesBloc>().add(HomePageOpened());
+                },
+                child: ListView.builder(
+                  itemCount: state.classList!.length,
+                  itemBuilder: (context, index) => ClassCard(
+                    classData: state.classList![index],
+                  ),
                 ),
               );
             } else if (state is ClassesError) {

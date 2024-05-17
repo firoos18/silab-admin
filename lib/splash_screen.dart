@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:silab_admin/core/router/router.dart';
 import 'package:silab_admin/features/authentication/presentation/bloc/login_bloc.dart';
 
@@ -21,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<LoginBloc, LoginState>(
-      listener: (context, state) {
+      listener: (context, state) async {
         if (state is LoginLoaded) {
           Future.delayed(const Duration(seconds: 2)).then(
             (value) => router.go('/home'),
