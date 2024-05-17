@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:silab_admin/features/add_class/presentation/pages/class_tab.dart';
-import 'package:silab_admin/features/add_class/presentation/pages/subject_tab.dart';
+import 'package:silab_admin/features/add/presentation/pages/class_tab.dart';
+import 'package:silab_admin/features/add/presentation/pages/subject_tab.dart';
 import 'package:silab_admin/features/subjects/presentation/bloc/subject_bloc.dart';
 
 class AddPage extends StatefulWidget {

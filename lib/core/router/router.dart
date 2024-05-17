@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:silab_admin/features/add_class/presentation/pages/add_page.dart';
+import 'package:silab_admin/features/add/presentation/pages/add_page.dart';
 import 'package:silab_admin/app_config.dart';
 import 'package:silab_admin/features/authentication/presentation/pages/login_page.dart';
 import 'package:silab_admin/features/classes/presentation/pages/home_page.dart';
