@@ -6,6 +6,7 @@ import 'package:silab_admin/features/add/presentation/bloc/add_class/add_class_b
 import 'package:silab_admin/features/add/presentation/bloc/add_subject/add_subject_bloc.dart';
 import 'package:silab_admin/features/authentication/presentation/bloc/login_bloc.dart';
 import 'package:silab_admin/features/classes/presentation/bloc/classes_bloc.dart';
+import 'package:silab_admin/features/details/presentation/bloc/class_detail_bloc.dart';
 import 'package:silab_admin/features/subjects/presentation/bloc/subject_bloc.dart';
 import 'package:silab_admin/injection_container.dart';
 
@@ -34,6 +35,7 @@ class MainApp extends StatelessWidget {
         BlocProvider<SubjectBloc>(create: (_) => injector()),
         BlocProvider<AddClassBloc>(create: (_) => injector()),
         BlocProvider<AddSubjectBloc>(create: (_) => injector()),
+        BlocProvider<ClassDetailBloc>(create: (_) => injector()),
       ],
       child: MaterialApp.router(
         routerConfig: router,

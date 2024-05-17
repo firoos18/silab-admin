@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:silab_admin/core/common/widgets/custom_loading_indicator.dart';
 import 'package:silab_admin/features/add/presentation/pages/class_tab.dart';
 import 'package:silab_admin/features/add/presentation/pages/subject_tab.dart';
 import 'package:silab_admin/features/subjects/presentation/bloc/subject_bloc.dart';
@@ -51,17 +52,8 @@ class _AddPageState extends State<AddPage> with SingleTickerProviderStateMixin {
           if (state is SubjectLoading) {
             showDialog(
               context: context,
-              builder: (context) => Center(
-                child: Container(
-                  height: 64,
-                  width: 64,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(16),
-                    shape: BoxShape.rectangle,
-                  ),
-                  child: const CupertinoActivityIndicator(),
-                ),
+              builder: (context) => const Center(
+                child: CustomLoadingIndicator(),
               ),
             );
           } else if (state is SubjectError) {

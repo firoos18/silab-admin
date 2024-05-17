@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:silab_admin/core/common/widgets/custom_snackbar.dart';
 import 'package:silab_admin/features/add/data/models/add_subject_model/add_subject_model.dart';
 import 'package:silab_admin/features/add/presentation/bloc/add_subject/add_subject_bloc.dart';
 import 'package:silab_admin/features/add/presentation/widgets/subject_text_field.dart';
@@ -48,9 +49,10 @@ class _SubjectTabState extends State<SubjectTab> {
             child: BlocConsumer<AddSubjectBloc, AddSubjectState>(
               listener: (context, state) {
                 if (state is AddSubjectLoaded) {
-                  ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text(state.message!)),
+                  showCustomSnackbar(
+                    context,
+                    state.message!,
+                    SnackbarType.success,
                   );
 
                   context.read<ClassesBloc>().add(HomePageOpened());
@@ -60,9 +62,10 @@ class _SubjectTabState extends State<SubjectTab> {
                   );
                 } else {
                   if (state is AddSubjectError) {
-                    ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text(state.message!)),
+                    showCustomSnackbar(
+                      context,
+                      state.message!,
+                      SnackbarType.error,
                     );
                   }
                 }

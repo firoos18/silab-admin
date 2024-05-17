@@ -22,6 +22,11 @@ import 'package:silab_admin/features/classes/data/repositories/class_respository
 import 'package:silab_admin/features/classes/domain/repositories/class_repository.dart';
 import 'package:silab_admin/features/classes/domain/usecases/get_all_classes_usecase.dart';
 import 'package:silab_admin/features/classes/presentation/bloc/classes_bloc.dart';
+import 'package:silab_admin/features/details/data/data_source/class_detail_api_service.dart';
+import 'package:silab_admin/features/details/data/repositories/class_detail_repository_impl.dart';
+import 'package:silab_admin/features/details/domain/repositories/class_detail_repository.dart';
+import 'package:silab_admin/features/details/domain/usecases/get_class_details_usecase.dart';
+import 'package:silab_admin/features/details/presentation/bloc/class_detail_bloc.dart';
 import 'package:silab_admin/features/subjects/data/data_sources/subject_api_service.dart';
 import 'package:silab_admin/features/subjects/data/repositories/subject_repository_impl.dart';
 import 'package:silab_admin/features/subjects/domain/repositories/subject_repository.dart';
@@ -46,6 +51,8 @@ Future<void> initializeDependencies() async {
       .registerSingleton<AddClassApiService>(AddClassApiService(injector()));
   injector.registerSingleton<AddSubjectApiService>(
       AddSubjectApiService(injector()));
+  injector.registerSingleton<ClassDetailApiService>(
+      ClassDetailApiService(injector()));
 
   // Repositories
   injector.registerSingleton<AuthenticationRepository>(
@@ -57,6 +64,8 @@ Future<void> initializeDependencies() async {
       AddClassRepositoryImpl(injector()));
   injector.registerSingleton<AddSubjectRepository>(
       AddSubjectRepositoryImpl(injector()));
+  injector.registerSingleton<ClassDetailRepository>(
+      ClassDetailRepositoryImpl(injector()));
 
   // Usecases
   injector.registerSingleton<UserLoginUseCase>(UserLoginUseCase(injector()));
@@ -68,6 +77,8 @@ Future<void> initializeDependencies() async {
       GetAllSubjectsUseCase(injector()));
   injector.registerSingleton<AddClassUseCase>(AddClassUseCase(injector()));
   injector.registerSingleton<AddSubjectUseCase>(AddSubjectUseCase(injector()));
+  injector.registerSingleton<GetClassDetailsUseCase>(
+      GetClassDetailsUseCase(injector()));
 
   // BLOCS
   injector.registerFactory<LoginBloc>(() => LoginBloc(injector(), injector()));
@@ -75,4 +86,5 @@ Future<void> initializeDependencies() async {
   injector.registerFactory<SubjectBloc>(() => SubjectBloc(injector()));
   injector.registerFactory<AddClassBloc>(() => AddClassBloc(injector()));
   injector.registerFactory<AddSubjectBloc>(() => AddSubjectBloc(injector()));
+  injector.registerFactory<ClassDetailBloc>(() => ClassDetailBloc(injector()));
 }

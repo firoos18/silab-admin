@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
-import 'package:silab_admin/features/classes/domain/entities/class_entity.dart';
+import 'package:silab_admin/core/common/entities/class_entity.dart';
 
 class ClassCard extends StatelessWidget {
   final ClassEntity classData;
