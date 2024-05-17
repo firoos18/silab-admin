@@ -4,6 +4,7 @@ import 'package:silab_admin/features/add/presentation/pages/add_page.dart';
 import 'package:silab_admin/app_config.dart';
 import 'package:silab_admin/features/authentication/presentation/pages/login_page.dart';
 import 'package:silab_admin/features/classes/presentation/pages/home_page.dart';
+import 'package:silab_admin/features/details/presentation/pages/detail_page.dart';
 import 'package:silab_admin/scaffold_page.dart';
 import 'package:silab_admin/splash_screen.dart';
 
@@ -20,11 +21,13 @@ final GoRouter router = GoRouter(
   routes: [
     GoRoute(
       path: '/',
+      name: 'splash',
       parentNavigatorKey: _rootNavigatorKey,
       builder: (context, state) => const SplashScreen(),
     ),
     GoRoute(
       path: '/login',
+      name: 'login',
       parentNavigatorKey: _rootNavigatorKey,
       builder: (context, state) => const LoginPage(),
     ),
@@ -38,7 +41,16 @@ final GoRouter router = GoRouter(
           routes: [
             GoRoute(
               path: '/home',
+              name: 'home',
               builder: (context, state) => const HomePage(),
+              routes: [
+                GoRoute(
+                  path: ':id',
+                  name: 'details',
+                  builder: (context, state) =>
+                      DetailPage(id: state.pathParameters['id']!),
+                )
+              ],
             ),
           ],
         ),
@@ -47,6 +59,7 @@ final GoRouter router = GoRouter(
           routes: [
             GoRoute(
               path: '/find',
+              name: 'find',
               pageBuilder: (context, state) => const NoTransitionPage(
                 child: Scaffold(
                   body: Center(
@@ -62,6 +75,7 @@ final GoRouter router = GoRouter(
           routes: [
             GoRoute(
               path: '/profile',
+              name: 'profile',
               pageBuilder: (context, state) => const NoTransitionPage(
                 child: Scaffold(
                   body: Center(
@@ -76,6 +90,7 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: '/add',
+      name: 'add',
       parentNavigatorKey: _rootNavigatorKey,
       builder: (context, state) => const AddPage(),
     ),
