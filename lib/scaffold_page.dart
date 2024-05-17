@@ -56,7 +56,7 @@ class _ScaffoldPageState extends State<ScaffoldPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          context.push('/add-class');
+          context.push('/add');
         },
         child: const Icon(Icons.add),
       ),

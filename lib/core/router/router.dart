@@ -75,7 +75,7 @@ final GoRouter router = GoRouter(
       ],
     ),
     GoRoute(
-      path: '/add-class',
+      path: '/add',
       parentNavigatorKey: _rootNavigatorKey,
       builder: (context, state) => const AddPage(),
     ),
