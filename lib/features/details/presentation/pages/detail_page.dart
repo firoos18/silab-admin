@@ -1,8 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:silab_admin/core/common/widgets/custom_loading_indicator.dart';
 import 'package:silab_admin/core/common/widgets/custom_snackbar.dart';
 import 'package:silab_admin/features/details/presentation/bloc/class_detail_bloc.dart';
+import 'package:silab_admin/features/subjects/presentation/bloc/subject_by_id/subject_by_id_bloc.dart';
 
 class DetailPage extends StatefulWidget {
   final String id;
@@ -22,35 +23,99 @@ class _DetailPageState extends State<DetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<ClassDetailBloc, ClassDetailState>(
-      listener: (context, state) {
-        if (state is ClassDetailLoading) {
-          showDialog(
-            context: context,
-            builder: (context) => const Center(
-              child: CustomLoadingIndicator(),
-            ),
-          );
-        } else if (state is ClassDetailLoaded) {
-          Navigator.of(context, rootNavigator: true).pop();
-        } else if (state is ClassDetailError) {
-          showCustomSnackbar(context, state.message!, SnackbarType.error);
-        }
-      },
-      builder: (context, state) {
-        if (state is ClassDetailLoaded) {
-          return Scaffold(
-            appBar: AppBar(
-              title: Text(state.classEntity!.name!),
-            ),
-            body: Center(
-              child: Text(state.classEntity!.name!),
-            ),
-          );
-        }
+    return MultiBlocListener(
+        listeners: [
+          BlocListener<ClassDetailBloc, ClassDetailState>(
+            listener: (context, state) {
+              if (state is ClassDetailError) {
+                showCustomSnackbar(context, state.message!, SnackbarType.error);
+              }
+            },
+          ),
+          BlocListener<SubjectByIdBloc, SubjectByIdState>(
+            listener: (context, state) {
+              if (state is SubjectByIdError) {
+                showCustomSnackbar(context, state.message!, SnackbarType.error);
+              }
+            },
+          )
+        ],
+        child: BlocBuilder<SubjectByIdBloc, SubjectByIdState>(
+          builder: (context, state) {
+            if (state is SubjectByIdLoading) {
+              return const Center(
+                child: CupertinoActivityIndicator(),
+              );
+            }
 
-        return const SizedBox();
-      },
-    );
+            if (state is SubjectByIdLoaded) {
+              final subjectName = state.subjectEntity!.name;
+
+              return BlocBuilder<ClassDetailBloc, ClassDetailState>(
+                builder: (context, state) {
+                  if (state is ClassDetailLoaded) {
+                    return Scaffold(
+                        appBar: AppBar(
+                          title: Text(state.classEntity!.name!),
+                        ),
+                        body: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 8,
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                state.classEntity!.name!,
+                                style: const TextStyle(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                subjectName!,
+                                style: const TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w300,
+                                ),
+                              ),
+                              const SizedBox(height: 24),
+                              const Text(
+                                "Class Participants",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 16,
+                                ),
+                              ),
+                              Expanded(
+                                child: ListView.builder(
+                                  itemCount:
+                                      state.classEntity!.participants!.length,
+                                  itemBuilder: (context, index) {
+                                    return Text(
+                                      state.classEntity!.participants![index]
+                                          .name!,
+                                    );
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                        ));
+                  } else if (state is ClassDetailLoading) {
+                    return const Center(
+                      child: CupertinoActivityIndicator(),
+                    );
+                  } else {
+                    return const SizedBox();
+                  }
+                },
+              );
+            } else {
+              return const SizedBox();
+            }
+          },
+        ));
   }
 }

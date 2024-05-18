@@ -9,7 +9,7 @@ import 'package:silab_admin/features/add/presentation/widgets/class_text_field.d
 import 'package:silab_admin/features/add/presentation/widgets/day_dropdown_menu.dart';
 import 'package:silab_admin/features/add/presentation/widgets/time_picker_field.dart';
 import 'package:silab_admin/features/classes/presentation/bloc/classes_bloc.dart';
-import 'package:silab_admin/features/subjects/presentation/bloc/subject_bloc.dart';
+import 'package:silab_admin/features/subjects/presentation/bloc/all_subjects/subject_bloc.dart';
 import 'package:silab_admin/features/subjects/presentation/widgets/subject_dropdown_menu.dart';
 
 class ClassTab extends StatefulWidget {

@@ -31,7 +31,9 @@ import 'package:silab_admin/features/subjects/data/data_sources/subject_api_serv
 import 'package:silab_admin/features/subjects/data/repositories/subject_repository_impl.dart';
 import 'package:silab_admin/features/subjects/domain/repositories/subject_repository.dart';
 import 'package:silab_admin/features/subjects/domain/usecases/get_all_subjects_usecase.dart';
-import 'package:silab_admin/features/subjects/presentation/bloc/subject_bloc.dart';
+import 'package:silab_admin/features/subjects/domain/usecases/get_subject_by_id_usecase.dart';
+import 'package:silab_admin/features/subjects/presentation/bloc/all_subjects/subject_bloc.dart';
+import 'package:silab_admin/features/subjects/presentation/bloc/subject_by_id/subject_by_id_bloc.dart';
 
 final injector = GetIt.instance;
 
@@ -79,6 +81,8 @@ Future<void> initializeDependencies() async {
   injector.registerSingleton<AddSubjectUseCase>(AddSubjectUseCase(injector()));
   injector.registerSingleton<GetClassDetailsUseCase>(
       GetClassDetailsUseCase(injector()));
+  injector.registerSingleton<GetSubjectByIdUseCase>(
+      GetSubjectByIdUseCase(injector()));
 
   // BLOCS
   injector.registerFactory<LoginBloc>(() => LoginBloc(injector(), injector()));
@@ -87,4 +91,5 @@ Future<void> initializeDependencies() async {
   injector.registerFactory<AddClassBloc>(() => AddClassBloc(injector()));
   injector.registerFactory<AddSubjectBloc>(() => AddSubjectBloc(injector()));
   injector.registerFactory<ClassDetailBloc>(() => ClassDetailBloc(injector()));
+  injector.registerFactory<SubjectByIdBloc>(() => SubjectByIdBloc(injector()));
 }

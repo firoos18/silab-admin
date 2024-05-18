@@ -17,7 +17,10 @@ _$ClassEntityImpl _$$ClassEntityImplFromJson(Map<String, dynamic> json) =>
       assistants: json['assistants'] as List<dynamic>?,
       quota: (json['quota'] as num?)?.toInt(),
       isFull: json['isFull'] as bool?,
-      participants: json['participants'] as List<dynamic>?,
+      participants: (json['participants'] as List<dynamic>?)
+          ?.map((e) =>
+              ClassParticipantsEntity.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$ClassEntityImplToJson(_$ClassEntityImpl instance) =>

@@ -29,7 +29,8 @@ mixin _$ClassEntity {
   List<dynamic>? get assistants => throw _privateConstructorUsedError;
   int? get quota => throw _privateConstructorUsedError;
   bool? get isFull => throw _privateConstructorUsedError;
-  List<dynamic>? get participants => throw _privateConstructorUsedError;
+  List<ClassParticipantsEntity>? get participants =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -53,7 +54,7 @@ abstract class $ClassEntityCopyWith<$Res> {
       List<dynamic>? assistants,
       int? quota,
       bool? isFull,
-      List<dynamic>? participants});
+      List<ClassParticipantsEntity>? participants});
 }
 
 /// @nodoc
@@ -120,7 +121,7 @@ class _$ClassEntityCopyWithImpl<$Res, $Val extends ClassEntity>
       participants: freezed == participants
           ? _value.participants
           : participants // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>?,
+              as List<ClassParticipantsEntity>?,
     ) as $Val);
   }
 }
@@ -143,7 +144,7 @@ abstract class _$$ClassEntityImplCopyWith<$Res>
       List<dynamic>? assistants,
       int? quota,
       bool? isFull,
-      List<dynamic>? participants});
+      List<ClassParticipantsEntity>? participants});
 }
 
 /// @nodoc
@@ -208,7 +209,7 @@ class __$$ClassEntityImplCopyWithImpl<$Res>
       participants: freezed == participants
           ? _value._participants
           : participants // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>?,
+              as List<ClassParticipantsEntity>?,
     ));
   }
 }
@@ -226,7 +227,7 @@ class _$ClassEntityImpl implements _ClassEntity {
       final List<dynamic>? assistants,
       this.quota,
       this.isFull,
-      final List<dynamic>? participants})
+      final List<ClassParticipantsEntity>? participants})
       : _assistants = assistants,
         _participants = participants;
 
@@ -259,9 +260,9 @@ class _$ClassEntityImpl implements _ClassEntity {
   final int? quota;
   @override
   final bool? isFull;
-  final List<dynamic>? _participants;
+  final List<ClassParticipantsEntity>? _participants;
   @override
-  List<dynamic>? get participants {
+  List<ClassParticipantsEntity>? get participants {
     final value = _participants;
     if (value == null) return null;
     if (_participants is EqualUnmodifiableListView) return _participants;
@@ -334,7 +335,7 @@ abstract class _ClassEntity implements ClassEntity {
       final List<dynamic>? assistants,
       final int? quota,
       final bool? isFull,
-      final List<dynamic>? participants}) = _$ClassEntityImpl;
+      final List<ClassParticipantsEntity>? participants}) = _$ClassEntityImpl;
 
   factory _ClassEntity.fromJson(Map<String, dynamic> json) =
       _$ClassEntityImpl.fromJson;
@@ -358,7 +359,7 @@ abstract class _ClassEntity implements ClassEntity {
   @override
   bool? get isFull;
   @override
-  List<dynamic>? get participants;
+  List<ClassParticipantsEntity>? get participants;
   @override
   @JsonKey(ignore: true)
   _$$ClassEntityImplCopyWith<_$ClassEntityImpl> get copyWith =>

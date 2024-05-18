@@ -1,6 +1,8 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:silab_admin/core/common/entities/class_entity.dart';
+import 'package:silab_admin/features/subjects/presentation/bloc/subject_by_id/subject_by_id_bloc.dart';
 
 class ClassCard extends StatelessWidget {
   final ClassEntity classData;
@@ -14,6 +16,9 @@ class ClassCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        context
+            .read<SubjectByIdBloc>()
+            .add(GetSubjectById(id: classData.subjectId));
         context.goNamed('details', pathParameters: {'id': classData.id!});
       },
       child: Container(

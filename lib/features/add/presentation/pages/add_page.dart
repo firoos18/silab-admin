@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:silab_admin/core/common/widgets/custom_loading_indicator.dart';
 import 'package:silab_admin/features/add/presentation/pages/class_tab.dart';
 import 'package:silab_admin/features/add/presentation/pages/subject_tab.dart';
-import 'package:silab_admin/features/subjects/presentation/bloc/subject_bloc.dart';
+import 'package:silab_admin/features/subjects/presentation/bloc/all_subjects/subject_bloc.dart';
 
 class AddPage extends StatefulWidget {
   const AddPage({super.key});

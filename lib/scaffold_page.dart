@@ -54,13 +54,24 @@ class _ScaffoldPageState extends State<ScaffoldPage> {
           _goBranch(_selectedIndex);
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          context.push('/add');
-        },
-        child: const Icon(Icons.add),
-      ),
+      floatingActionButton: shouldShowFab(context)
+          ? FloatingActionButton(
+              onPressed: () {
+                context.push('/add');
+              },
+              child: const Icon(Icons.add),
+            )
+          : null,
     );
+  }
+}
+
+bool shouldShowFab(BuildContext context) {
+  var route = GoRouterState.of(context).uri.toString();
+  if (route.contains("/home/")) {
+    return false;
+  } else {
+    return true;
   }
 }
 
