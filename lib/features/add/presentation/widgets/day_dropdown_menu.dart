@@ -29,7 +29,7 @@ class _DayDropdownMenuState extends State<DayDropdownMenu> {
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField(
-      value: selectedDay,
+      value: widget.initialValue ?? selectedDay,
       items: days
           .map(
             (day) => DropdownMenuItem(value: day, child: Text(day)),

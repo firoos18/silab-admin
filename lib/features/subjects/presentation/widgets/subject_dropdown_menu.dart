@@ -23,7 +23,7 @@ class _SubjectDropdownMenuState extends State<SubjectDropdownMenu> {
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField(
-      value: selectedValue,
+      value: widget.initialValue ?? selectedValue,
       items: widget.subjectList
           .map(
             (e) => DropdownMenuItem(

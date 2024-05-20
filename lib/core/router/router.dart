@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:silab_admin/core/router/page_transition.dart';
 import 'package:silab_admin/features/add/presentation/pages/add_page.dart';
 import 'package:silab_admin/app_config.dart';
 import 'package:silab_admin/features/authentication/presentation/pages/login_page.dart';
@@ -47,8 +48,11 @@ final GoRouter router = GoRouter(
                 GoRoute(
                   path: ':id',
                   name: 'details',
-                  builder: (context, state) =>
-                      DetailPage(id: state.pathParameters['id']!),
+                  pageBuilder: (context, state) => pageTransition<void>(
+                    context: context,
+                    state: state,
+                    child: DetailPage(id: state.pathParameters['id']!),
+                  ),
                 )
               ],
             ),
