@@ -23,8 +23,7 @@ mixin _$SubjectEntity {
   String? get id => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String? get lecturer => throw _privateConstructorUsedError;
-  List<ClassesInSubjectEntity>? get classes =>
-      throw _privateConstructorUsedError;
+  List<ClassEntity>? get classes => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,10 +38,7 @@ abstract class $SubjectEntityCopyWith<$Res> {
       _$SubjectEntityCopyWithImpl<$Res, SubjectEntity>;
   @useResult
   $Res call(
-      {String? id,
-      String? name,
-      String? lecturer,
-      List<ClassesInSubjectEntity>? classes});
+      {String? id, String? name, String? lecturer, List<ClassEntity>? classes});
 }
 
 /// @nodoc
@@ -79,7 +75,7 @@ class _$SubjectEntityCopyWithImpl<$Res, $Val extends SubjectEntity>
       classes: freezed == classes
           ? _value.classes
           : classes // ignore: cast_nullable_to_non_nullable
-              as List<ClassesInSubjectEntity>?,
+              as List<ClassEntity>?,
     ) as $Val);
   }
 }
@@ -93,10 +89,7 @@ abstract class _$$SubjectEntityImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? id,
-      String? name,
-      String? lecturer,
-      List<ClassesInSubjectEntity>? classes});
+      {String? id, String? name, String? lecturer, List<ClassEntity>? classes});
 }
 
 /// @nodoc
@@ -131,7 +124,7 @@ class __$$SubjectEntityImplCopyWithImpl<$Res>
       classes: freezed == classes
           ? _value._classes
           : classes // ignore: cast_nullable_to_non_nullable
-              as List<ClassesInSubjectEntity>?,
+              as List<ClassEntity>?,
     ));
   }
 }
@@ -140,10 +133,7 @@ class __$$SubjectEntityImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SubjectEntityImpl implements _SubjectEntity {
   const _$SubjectEntityImpl(
-      {this.id,
-      this.name,
-      this.lecturer,
-      final List<ClassesInSubjectEntity>? classes})
+      {this.id, this.name, this.lecturer, final List<ClassEntity>? classes})
       : _classes = classes;
 
   factory _$SubjectEntityImpl.fromJson(Map<String, dynamic> json) =>
@@ -155,9 +145,9 @@ class _$SubjectEntityImpl implements _SubjectEntity {
   final String? name;
   @override
   final String? lecturer;
-  final List<ClassesInSubjectEntity>? _classes;
+  final List<ClassEntity>? _classes;
   @override
-  List<ClassesInSubjectEntity>? get classes {
+  List<ClassEntity>? get classes {
     final value = _classes;
     if (value == null) return null;
     if (_classes is EqualUnmodifiableListView) return _classes;
@@ -206,7 +196,7 @@ abstract class _SubjectEntity implements SubjectEntity {
       {final String? id,
       final String? name,
       final String? lecturer,
-      final List<ClassesInSubjectEntity>? classes}) = _$SubjectEntityImpl;
+      final List<ClassEntity>? classes}) = _$SubjectEntityImpl;
 
   factory _SubjectEntity.fromJson(Map<String, dynamic> json) =
       _$SubjectEntityImpl.fromJson;
@@ -218,7 +208,7 @@ abstract class _SubjectEntity implements SubjectEntity {
   @override
   String? get lecturer;
   @override
-  List<ClassesInSubjectEntity>? get classes;
+  List<ClassEntity>? get classes;
   @override
   @JsonKey(ignore: true)
   _$$SubjectEntityImplCopyWith<_$SubjectEntityImpl> get copyWith =>
