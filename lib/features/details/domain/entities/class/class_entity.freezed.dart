@@ -21,7 +21,7 @@ ClassEntity _$ClassEntityFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ClassEntity {
   String? get id => throw _privateConstructorUsedError;
-  String? get subjectId => throw _privateConstructorUsedError;
+  SubjectInClassEntity? get subject => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String? get day => throw _privateConstructorUsedError;
   String? get startAt => throw _privateConstructorUsedError;
@@ -46,7 +46,7 @@ abstract class $ClassEntityCopyWith<$Res> {
   @useResult
   $Res call(
       {String? id,
-      String? subjectId,
+      SubjectInClassEntity? subject,
       String? name,
       String? day,
       String? startAt,
@@ -55,6 +55,8 @@ abstract class $ClassEntityCopyWith<$Res> {
       int? quota,
       bool? isFull,
       List<ClassParticipantsEntity>? participants});
+
+  $SubjectInClassEntityCopyWith<$Res>? get subject;
 }
 
 /// @nodoc
@@ -71,7 +73,7 @@ class _$ClassEntityCopyWithImpl<$Res, $Val extends ClassEntity>
   @override
   $Res call({
     Object? id = freezed,
-    Object? subjectId = freezed,
+    Object? subject = freezed,
     Object? name = freezed,
     Object? day = freezed,
     Object? startAt = freezed,
@@ -86,10 +88,10 @@ class _$ClassEntityCopyWithImpl<$Res, $Val extends ClassEntity>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      subjectId: freezed == subjectId
-          ? _value.subjectId
-          : subjectId // ignore: cast_nullable_to_non_nullable
-              as String?,
+      subject: freezed == subject
+          ? _value.subject
+          : subject // ignore: cast_nullable_to_non_nullable
+              as SubjectInClassEntity?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -124,6 +126,18 @@ class _$ClassEntityCopyWithImpl<$Res, $Val extends ClassEntity>
               as List<ClassParticipantsEntity>?,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SubjectInClassEntityCopyWith<$Res>? get subject {
+    if (_value.subject == null) {
+      return null;
+    }
+
+    return $SubjectInClassEntityCopyWith<$Res>(_value.subject!, (value) {
+      return _then(_value.copyWith(subject: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -136,7 +150,7 @@ abstract class _$$ClassEntityImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? id,
-      String? subjectId,
+      SubjectInClassEntity? subject,
       String? name,
       String? day,
       String? startAt,
@@ -145,6 +159,9 @@ abstract class _$$ClassEntityImplCopyWith<$Res>
       int? quota,
       bool? isFull,
       List<ClassParticipantsEntity>? participants});
+
+  @override
+  $SubjectInClassEntityCopyWith<$Res>? get subject;
 }
 
 /// @nodoc
@@ -159,7 +176,7 @@ class __$$ClassEntityImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? subjectId = freezed,
+    Object? subject = freezed,
     Object? name = freezed,
     Object? day = freezed,
     Object? startAt = freezed,
@@ -174,10 +191,10 @@ class __$$ClassEntityImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      subjectId: freezed == subjectId
-          ? _value.subjectId
-          : subjectId // ignore: cast_nullable_to_non_nullable
-              as String?,
+      subject: freezed == subject
+          ? _value.subject
+          : subject // ignore: cast_nullable_to_non_nullable
+              as SubjectInClassEntity?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -219,7 +236,7 @@ class __$$ClassEntityImplCopyWithImpl<$Res>
 class _$ClassEntityImpl implements _ClassEntity {
   const _$ClassEntityImpl(
       {this.id,
-      this.subjectId,
+      this.subject,
       this.name,
       this.day,
       this.startAt,
@@ -237,7 +254,7 @@ class _$ClassEntityImpl implements _ClassEntity {
   @override
   final String? id;
   @override
-  final String? subjectId;
+  final SubjectInClassEntity? subject;
   @override
   final String? name;
   @override
@@ -272,7 +289,7 @@ class _$ClassEntityImpl implements _ClassEntity {
 
   @override
   String toString() {
-    return 'ClassEntity(id: $id, subjectId: $subjectId, name: $name, day: $day, startAt: $startAt, endAt: $endAt, assistants: $assistants, quota: $quota, isFull: $isFull, participants: $participants)';
+    return 'ClassEntity(id: $id, subject: $subject, name: $name, day: $day, startAt: $startAt, endAt: $endAt, assistants: $assistants, quota: $quota, isFull: $isFull, participants: $participants)';
   }
 
   @override
@@ -281,8 +298,7 @@ class _$ClassEntityImpl implements _ClassEntity {
         (other.runtimeType == runtimeType &&
             other is _$ClassEntityImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.subjectId, subjectId) ||
-                other.subjectId == subjectId) &&
+            (identical(other.subject, subject) || other.subject == subject) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.day, day) || other.day == day) &&
             (identical(other.startAt, startAt) || other.startAt == startAt) &&
@@ -300,7 +316,7 @@ class _$ClassEntityImpl implements _ClassEntity {
   int get hashCode => Object.hash(
       runtimeType,
       id,
-      subjectId,
+      subject,
       name,
       day,
       startAt,
@@ -327,7 +343,7 @@ class _$ClassEntityImpl implements _ClassEntity {
 abstract class _ClassEntity implements ClassEntity {
   const factory _ClassEntity(
       {final String? id,
-      final String? subjectId,
+      final SubjectInClassEntity? subject,
       final String? name,
       final String? day,
       final String? startAt,
@@ -343,7 +359,7 @@ abstract class _ClassEntity implements ClassEntity {
   @override
   String? get id;
   @override
-  String? get subjectId;
+  SubjectInClassEntity? get subject;
   @override
   String? get name;
   @override

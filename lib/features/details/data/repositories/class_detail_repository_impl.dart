@@ -4,7 +4,7 @@ import 'package:silab_admin/core/exceptions/exceptions.dart';
 import 'package:silab_admin/core/failures/failures.dart';
 import 'package:silab_admin/features/details/data/data_source/class_detail_api_service.dart';
 import 'package:silab_admin/features/details/data/models/update_class_model.dart';
-import 'package:silab_admin/features/details/domain/entities/class_detail_response_entity.dart';
+import 'package:silab_admin/features/details/domain/entities/class_detail_response/class_detail_response_entity.dart';
 import 'package:silab_admin/features/details/domain/repositories/class_detail_repository.dart';
 
 class ClassDetailRepositoryImpl implements ClassDetailRepository {

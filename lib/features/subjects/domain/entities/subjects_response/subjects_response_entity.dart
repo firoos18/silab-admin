@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:silab_admin/features/subjects/domain/entities/subject_entity.dart';
+import 'package:silab_admin/features/subjects/domain/entities/subject/subject_entity.dart';
 
 part 'subjects_response_entity.freezed.dart';
 part 'subjects_response_entity.g.dart';

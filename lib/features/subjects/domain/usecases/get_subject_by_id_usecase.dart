@@ -1,7 +1,7 @@
 import 'package:either_dart/either.dart';
 import 'package:silab_admin/core/failures/failures.dart';
 import 'package:silab_admin/core/usecases/usecases.dart';
-import 'package:silab_admin/features/subjects/domain/entities/subject_by_id_response_entity.dart';
+import 'package:silab_admin/features/subjects/domain/entities/subject_by_id_response/subject_by_id_response_entity.dart';
 import 'package:silab_admin/features/subjects/domain/repositories/subject_repository.dart';
 
 class GetSubjectByIdUseCase

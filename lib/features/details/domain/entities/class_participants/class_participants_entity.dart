@@ -7,7 +7,9 @@ part 'class_participants_entity.g.dart';
 class ClassParticipantsEntity with _$ClassParticipantsEntity {
   const factory ClassParticipantsEntity({
     String? id,
-    String? name,
+    String? email,
+    String? fullname,
+    String? nim,
   }) = _ClassParticipantsEntity;
 
   factory ClassParticipantsEntity.fromJson(Map<String, dynamic> json) =>

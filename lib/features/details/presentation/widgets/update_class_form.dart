@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:silab_admin/core/common/entities/class_entity.dart';
+import 'package:silab_admin/features/details/domain/entities/class/class_entity.dart';
 import 'package:silab_admin/core/common/widgets/custom_snackbar.dart';
 import 'package:silab_admin/features/add/presentation/widgets/class_text_field.dart';
 import 'package:silab_admin/features/add/presentation/widgets/day_dropdown_menu.dart';
@@ -66,7 +66,7 @@ class _UpdateClassFormState extends State<UpdateClassForm> {
       listener: (context, state) {
         if (state is SubjectLoaded) {
           for (var subject in state.subjectList!) {
-            if (subject.id == widget.classData.subjectId) {
+            if (subject.id == widget.classData.subject!.id) {
               setState(() {
                 initialSubject = subject.id;
               });

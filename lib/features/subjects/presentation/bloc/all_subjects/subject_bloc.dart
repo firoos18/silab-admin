@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:silab_admin/features/subjects/domain/entities/subject_entity.dart';
+import 'package:silab_admin/features/subjects/domain/entities/subject/subject_entity.dart';
 import 'package:silab_admin/features/subjects/domain/usecases/get_all_subjects_usecase.dart';
 
 part 'subject_event.dart';
@@ -13,7 +13,10 @@ class SubjectBloc extends Bloc<SubjectEvent, SubjectState> {
     on<GetAllSubjects>(onGetAllSubjects);
   }
 
+  List<SubjectEntity> subjectList = [];
+
   void onGetAllSubjects(SubjectEvent event, Emitter<SubjectState> emit) async {
+    subjectList.clear();
     emit(SubjectLoading());
 
     final subjectData =
@@ -21,7 +24,12 @@ class SubjectBloc extends Bloc<SubjectEvent, SubjectState> {
 
     subjectData.fold(
       (left) => emit(SubjectError(message: left.message)),
-      (right) => emit(SubjectLoaded(subjectList: subjectData.right.data)),
+      (right) {
+        final subjects = subjectData.right.data;
+        subjectList.addAll(subjects!);
+
+        emit(SubjectLoaded(subjectList: subjectList));
+      },
     );
   }
 }

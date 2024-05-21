@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:silab_admin/features/subjects/domain/entities/subject_entity.dart';
+import 'package:silab_admin/features/subjects/domain/entities/subject/subject_entity.dart';
 import 'package:silab_admin/features/subjects/domain/usecases/get_subject_by_id_usecase.dart';
 
 part 'subject_by_id_event.dart';

@@ -22,7 +22,9 @@ ClassParticipantsEntity _$ClassParticipantsEntityFromJson(
 /// @nodoc
 mixin _$ClassParticipantsEntity {
   String? get id => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
+  String? get fullname => throw _privateConstructorUsedError;
+  String? get nim => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +38,7 @@ abstract class $ClassParticipantsEntityCopyWith<$Res> {
           $Res Function(ClassParticipantsEntity) then) =
       _$ClassParticipantsEntityCopyWithImpl<$Res, ClassParticipantsEntity>;
   @useResult
-  $Res call({String? id, String? name});
+  $Res call({String? id, String? email, String? fullname, String? nim});
 }
 
 /// @nodoc
@@ -54,16 +56,26 @@ class _$ClassParticipantsEntityCopyWithImpl<$Res,
   @override
   $Res call({
     Object? id = freezed,
-    Object? name = freezed,
+    Object? email = freezed,
+    Object? fullname = freezed,
+    Object? nim = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      email: freezed == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      fullname: freezed == fullname
+          ? _value.fullname
+          : fullname // ignore: cast_nullable_to_non_nullable
+              as String?,
+      nim: freezed == nim
+          ? _value.nim
+          : nim // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -78,7 +90,7 @@ abstract class _$$ClassParticipantsEntityImplCopyWith<$Res>
       __$$ClassParticipantsEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? id, String? name});
+  $Res call({String? id, String? email, String? fullname, String? nim});
 }
 
 /// @nodoc
@@ -95,16 +107,26 @@ class __$$ClassParticipantsEntityImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? name = freezed,
+    Object? email = freezed,
+    Object? fullname = freezed,
+    Object? nim = freezed,
   }) {
     return _then(_$ClassParticipantsEntityImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      email: freezed == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      fullname: freezed == fullname
+          ? _value.fullname
+          : fullname // ignore: cast_nullable_to_non_nullable
+              as String?,
+      nim: freezed == nim
+          ? _value.nim
+          : nim // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -113,7 +135,8 @@ class __$$ClassParticipantsEntityImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ClassParticipantsEntityImpl implements _ClassParticipantsEntity {
-  const _$ClassParticipantsEntityImpl({this.id, this.name});
+  const _$ClassParticipantsEntityImpl(
+      {this.id, this.email, this.fullname, this.nim});
 
   factory _$ClassParticipantsEntityImpl.fromJson(Map<String, dynamic> json) =>
       _$$ClassParticipantsEntityImplFromJson(json);
@@ -121,11 +144,15 @@ class _$ClassParticipantsEntityImpl implements _ClassParticipantsEntity {
   @override
   final String? id;
   @override
-  final String? name;
+  final String? email;
+  @override
+  final String? fullname;
+  @override
+  final String? nim;
 
   @override
   String toString() {
-    return 'ClassParticipantsEntity(id: $id, name: $name)';
+    return 'ClassParticipantsEntity(id: $id, email: $email, fullname: $fullname, nim: $nim)';
   }
 
   @override
@@ -134,12 +161,15 @@ class _$ClassParticipantsEntityImpl implements _ClassParticipantsEntity {
         (other.runtimeType == runtimeType &&
             other is _$ClassParticipantsEntityImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.fullname, fullname) ||
+                other.fullname == fullname) &&
+            (identical(other.nim, nim) || other.nim == nim));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name);
+  int get hashCode => Object.hash(runtimeType, id, email, fullname, nim);
 
   @JsonKey(ignore: true)
   @override
@@ -158,7 +188,10 @@ class _$ClassParticipantsEntityImpl implements _ClassParticipantsEntity {
 
 abstract class _ClassParticipantsEntity implements ClassParticipantsEntity {
   const factory _ClassParticipantsEntity(
-      {final String? id, final String? name}) = _$ClassParticipantsEntityImpl;
+      {final String? id,
+      final String? email,
+      final String? fullname,
+      final String? nim}) = _$ClassParticipantsEntityImpl;
 
   factory _ClassParticipantsEntity.fromJson(Map<String, dynamic> json) =
       _$ClassParticipantsEntityImpl.fromJson;
@@ -166,7 +199,11 @@ abstract class _ClassParticipantsEntity implements ClassParticipantsEntity {
   @override
   String? get id;
   @override
-  String? get name;
+  String? get email;
+  @override
+  String? get fullname;
+  @override
+  String? get nim;
   @override
   @JsonKey(ignore: true)
   _$$ClassParticipantsEntityImplCopyWith<_$ClassParticipantsEntityImpl>

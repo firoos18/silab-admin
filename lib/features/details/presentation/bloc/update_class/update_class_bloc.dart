@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:silab_admin/core/common/entities/class_entity.dart';
+import 'package:silab_admin/features/details/domain/entities/class/class_entity.dart';
 import 'package:silab_admin/features/details/data/models/update_class_model.dart';
 import 'package:silab_admin/features/details/domain/usecases/update_class_usecase.dart';
 

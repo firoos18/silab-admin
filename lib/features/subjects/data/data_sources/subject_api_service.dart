@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:silab_admin/app_config.dart';
 import 'package:silab_admin/core/exceptions/exceptions.dart';
-import 'package:silab_admin/features/subjects/domain/entities/subject_by_id_response_entity.dart';
-import 'package:silab_admin/features/subjects/domain/entities/subjects_response_entity.dart';
+import 'package:silab_admin/features/subjects/domain/entities/subject_by_id_response/subject_by_id_response_entity.dart';
+import 'package:silab_admin/features/subjects/domain/entities/subjects_response/subjects_response_entity.dart';
 import 'package:http/http.dart' as http;
 
 class SubjectApiService {
@@ -37,6 +37,8 @@ class SubjectApiService {
         "Authorization": "Bearer $token",
       },
     );
+
+    print(response);
 
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);

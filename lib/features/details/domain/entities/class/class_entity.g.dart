@@ -9,7 +9,10 @@ part of 'class_entity.dart';
 _$ClassEntityImpl _$$ClassEntityImplFromJson(Map<String, dynamic> json) =>
     _$ClassEntityImpl(
       id: json['id'] as String?,
-      subjectId: json['subjectId'] as String?,
+      subject: json['subject'] == null
+          ? null
+          : SubjectInClassEntity.fromJson(
+              json['subject'] as Map<String, dynamic>),
       name: json['name'] as String?,
       day: json['day'] as String?,
       startAt: json['startAt'] as String?,
@@ -26,7 +29,7 @@ _$ClassEntityImpl _$$ClassEntityImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$ClassEntityImplToJson(_$ClassEntityImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'subjectId': instance.subjectId,
+      'subject': instance.subject,
       'name': instance.name,
       'day': instance.day,
       'startAt': instance.startAt,

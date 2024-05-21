@@ -4,7 +4,7 @@ import 'package:silab_admin/core/router/page_transition.dart';
 import 'package:silab_admin/features/add/presentation/pages/add_page.dart';
 import 'package:silab_admin/app_config.dart';
 import 'package:silab_admin/features/authentication/presentation/pages/login_page.dart';
-import 'package:silab_admin/features/classes/presentation/pages/home_page.dart';
+import 'package:silab_admin/features/subjects/presentation/pages/home_page.dart';
 import 'package:silab_admin/features/details/presentation/pages/detail_page.dart';
 import 'package:silab_admin/scaffold_page.dart';
 import 'package:silab_admin/splash_screen.dart';

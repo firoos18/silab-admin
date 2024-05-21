@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:silab_admin/features/add/data/models/add_class_model/add_class_model.dart';
 import 'package:silab_admin/features/add/domain/usecases/add_class_usecase.dart';
-import 'package:silab_admin/features/subjects/domain/entities/subject_entity.dart';
+import 'package:silab_admin/features/subjects/domain/entities/subject/subject_entity.dart';
 
 part 'add_class_event.dart';
 part 'add_class_state.dart';

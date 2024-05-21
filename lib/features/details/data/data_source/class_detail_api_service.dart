@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:silab_admin/app_config.dart';
 import 'package:silab_admin/core/exceptions/exceptions.dart';
 import 'package:silab_admin/features/details/data/models/update_class_model.dart';
-import 'package:silab_admin/features/details/domain/entities/class_detail_response_entity.dart';
+import 'package:silab_admin/features/details/domain/entities/class_detail_response/class_detail_response_entity.dart';
 
 class ClassDetailApiService {
   final SharedPreferences _sharedPreferences;

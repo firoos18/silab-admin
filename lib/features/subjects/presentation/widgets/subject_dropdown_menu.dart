@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:silab_admin/features/subjects/domain/entities/subject_entity.dart';
+import 'package:silab_admin/features/subjects/domain/entities/subject/subject_entity.dart';
 
 class SubjectDropdownMenu extends StatefulWidget {
   final List<SubjectEntity> subjectList;

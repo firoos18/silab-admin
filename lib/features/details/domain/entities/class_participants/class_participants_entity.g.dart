@@ -10,12 +10,16 @@ _$ClassParticipantsEntityImpl _$$ClassParticipantsEntityImplFromJson(
         Map<String, dynamic> json) =>
     _$ClassParticipantsEntityImpl(
       id: json['id'] as String?,
-      name: json['name'] as String?,
+      email: json['email'] as String?,
+      fullname: json['fullname'] as String?,
+      nim: json['nim'] as String?,
     );
 
 Map<String, dynamic> _$$ClassParticipantsEntityImplToJson(
         _$ClassParticipantsEntityImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'name': instance.name,
+      'email': instance.email,
+      'fullname': instance.fullname,
+      'nim': instance.nim,
     };
